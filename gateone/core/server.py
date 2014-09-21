@@ -2208,7 +2208,7 @@ class ApplicationWebSocket(WebSocketHandler, OnOffMixin):
 #                upn=user['upn'],
 #                origin=self.origin,
 #                location=self.location)
-        auth_log.info(log_msg)
+#        auth_log.info(log_msg)
         # This check is to make sure there's no existing session so we don't
         # accidentally clobber it.
         if self.session not in SESSIONS:
