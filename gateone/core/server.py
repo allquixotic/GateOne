@@ -1957,10 +1957,10 @@ class ApplicationWebSocket(WebSocketHandler, OnOffMixin):
         # api_timestamp_window setting and whether or not we've
         # already used it (to prevent replay attacks).
         if signature in self.prev_signatures:
-            self.auth_log.error(_(
-                "API AUTH: replay attack detected!  User: "
-                "%s, Remote IP: %s, Origin: %s" % (
-                upn, self.request.remote_ip, self.origin)))
+#            self.auth_log.error(_(
+#                "API AUTH: replay attack detected!  User: "
+#                "%s, Remote IP: %s, Origin: %s" % (
+#                upn, self.request.remote_ip, self.origin)))
             message = {'go:notice': _(
                 'API AUTH: Replay attack detected!  This '
                 'event has been logged.')}
@@ -2202,12 +2202,12 @@ class ApplicationWebSocket(WebSocketHandler, OnOffMixin):
         self.client_log = go_logger('gateone.client', **metadata)
         # NOTE: NOT using self.auth_log() here on purpose (this log message
         # should stay consistent for easier auditing):
-        log_msg = _(
-            u"User {upn} authenticated successfully via origin {origin} "
-            u"(location {location}).").format(
-                upn=user['upn'],
-                origin=self.origin,
-                location=self.location)
+#        log_msg = _(
+#            u"User {upn} authenticated successfully via origin {origin} "
+#            u"(location {location}).").format(
+#                upn=user['upn'],
+#                origin=self.origin,
+#                location=self.location)
         auth_log.info(log_msg)
         # This check is to make sure there's no existing session so we don't
         # accidentally clobber it.
