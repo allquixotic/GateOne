@@ -298,7 +298,7 @@ class GoogleAuthHandler(BaseAuthHandler, tornado.auth.GoogleOAuth2Mixin):
         Google.
         """
         self.base_url = "{protocol}://{host}:{port}{url_prefix}".format(
-            protocol=self.request.protocol,
+            protocol="https",
             host=self.request.host,
             port=self.settings['port'],
             url_prefix=self.settings['url_prefix'])
