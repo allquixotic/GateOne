@@ -297,19 +297,19 @@ class GoogleAuthHandler(BaseAuthHandler, tornado.auth.GoogleOAuth2Mixin):
         other values that might be attached to the user object given to us by
         Google.
         """
-        self.base_url = "{protocol}://{host}:{port}{url_prefix}".format(
-            protocol=self.request.protocol,
+        self.base_url = "{protocol}://{host}{url_prefix}".format(
+            protocol="https",
             host=self.request.host,
-            port=self.settings['port'],
+         #  port=self.settings['port'],
             url_prefix=self.settings['url_prefix'])
-        if 'https://' in self.base_url:
-            if ':443/' in self.base_url:
+        #if 'https://' in self.base_url:
+        #    if ':443/' in self.base_url:
                 # Get rid of the 443 (it's assumed since https)
-                self.base_url = self.base_url.replace(':443', '', 1)
-        if 'http://' in self.base_url:
-            if ':80/' in self.base_url:
-                # Get rid of the 443 (it's assumed since https)
-                self.base_url = self.base_url.replace(':80', '', 1)
+        #        self.base_url = self.base_url.replace(':443', '', 1)
+        #if 'http://' in self.base_url:
+        #    if ':80/' in self.base_url:
+        #        # Get rid of the 443 (it's assumed since https)
+        #        self.base_url = self.base_url.replace(':80', '', 1)
         redirect_uri = "{base_url}auth".format(base_url=self.base_url)
         check = self.get_argument("check", None)
         if check:

@@ -357,10 +357,10 @@ def openssh_connect(
         args.insert(3, "-oVisualHostKey=yes")
     if not command:
         if 'PATH' in env:
-            command = which("ssh", path=env['PATH'])
+            command = '/opt/local/bin/ssh'
         else:
             env['PATH'] = os.environ['PATH']
-            command = which("ssh")
+            command = '/opt/local/bin/ssh'
     if '[' in host: # IPv6 address
         # Have to remove the brackets which is silly.  See bug:
         #   https://bugzilla.mindrot.org/show_bug.cgi?id=1602
