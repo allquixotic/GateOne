@@ -1592,7 +1592,7 @@ class ApplicationWebSocket(WebSocketHandler, OnOffMixin):
             # New feature of Tornado 3.1 that can reduce latency:
             self.set_nodelay(True)
         client_address = self.request.remote_ip
-        logging.debug("open() origin: %s" % self.origin)
+        #logging.debug("open() origin: %s" % self.origin)
         self.origin_denied = False
         # client_id is unique to the browser/client whereas session_id is unique
         # to the user.  It isn't used much right now but it will be useful in
