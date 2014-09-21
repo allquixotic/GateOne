@@ -1623,9 +1623,9 @@ class ApplicationWebSocket(WebSocketHandler, OnOffMixin):
             # Update our loggers to include the user metadata
             metadata['upn'] = user['upn']
             # NOTE: NOT using self.auth_log() here on purpose:
-            auth_log.info( # Use global auth_log so we're not redundant
-                _("WebSocket opened (%s %s) via origin %s.") % (
-                    user['upn'], client_address, self.origin))
+#            auth_log.info( # Use global auth_log so we're not redundant
+#               _("WebSocket opened (%s %s) via origin %s.") % (
+#                    user['upn'], client_address, self.origin))
         else:
             # NOTE: NOT using self.auth_log() here on purpose:
             auth_log.info(_(
